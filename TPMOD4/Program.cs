@@ -17,6 +17,36 @@ internal class Program
         }
     };
 
+    public enum Triger {BUKA_KUNCI,KUNCI_PINTU };
+    public enum State { TERKUNCI,TERBUKA };
+    class DoorMachine {
+        public State currentState = State.TERKUNCI;
+
+        public class Transition
+        {
+            public State stateAwal;
+            public State stateAkhir;
+            public Triger triger;
+            public Transition (State stateAwal, State stateAkhir, Triger triger) {
+                this.stateAwal = stateAwal;
+                this.stateAkhir = stateAkhir;
+                this.triger = triger;   
+            }
+
+        }
+        Transition[] transisi =
+        {
+            new Transition(State.TERKUNCI,State.TERBUKA, Triger.BUKA_KUNCI),
+            new Transition(State.TERKUNCI, State.TERKUNCI, Triger.KUNCI_PINTU),
+
+        };
+        public State nexState(State stateAwal, State stateAkhir, Triger triger)
+        {
+
+        };
+
+    }
+
     private static void Main(string[] args)
     {
         
